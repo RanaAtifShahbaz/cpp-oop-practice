@@ -33,36 +33,45 @@ using namespace std;
 //     s3.display();
 // }
 
-class Rectangle{
+
+class Bank{
+    private:
+    int balance;
+    int amount;
+    int remaining;
     public:
-    float length;
-    float width;
-
-    void input(){
-        cout<<"Please Enter The Length"<<endl;
-        cin>>length;
-        cout<<"Enter The Width"<<endl;
-        cin>>width;
+    void deposit(int b){
+        if(b<=0){
+            cout<<"Deposit Must Be Greater Than Zero "<<endl;
+        
+        }
+        balance=b;
     }
+    void withdraw(){
+        
+        cout<<"Enter The amount to withdraw "<<endl;
+          cin>>amount;
+        if(amount>balance){
+            cout<<"Not have enough balance to withdraw ";
+        }
+      
 
-    float area(){
-        return (length*width);
+
     }
-    float parameter(){
-        return(2*(length+width));
+    void display_balance (){
+
+        remaining=balance-amount;
+        cout<<"Your Remaining Balance is "<<remaining<<endl;
+
+
     }
 
 
 };
- int main(){
-    float Area;
-    float Parameter;
-    Rectangle l1;
-    l1.input();
-    Area=l1.area();
-    cout<<"Area is "<<Area<<endl;
-    Parameter=l1.parameter();
-    cout<<"Parameter is "<<Parameter<<endl;
-    return 0;
+int main(){
+    Bank b1;
+    b1.deposit(2000);
+    b1.withdraw();
+    b1.display_balance();
 
- }
+}
